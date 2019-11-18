@@ -67,15 +67,15 @@ then
     echo "This branch is not a release branch. Skipping the tag creation."
     exit 0
 fi
-
+dt=$(date '+%Y-%m-%dT%H:%M:%SZ')
 echo "--------START--------"
 git pull origin master
 git config --global user.name "djhaynes"
 git config --global user.email "dhaynes@mitre.org"
 echo "**Release:** " > VERSION.md
-git describe --tags $(git rev-list --tags --max-count=1) >> VERSION.md
+echo "$new" >> VERSION.md
 echo "<br><br>**Date:** " >> VERSION.md
-git show -s --format=%ci $(git rev-list --tags --max-count=1) >> VERSION.md
+echo "$dt" >> VERSION.md
 echo "<br><br>**Commit:** " >> VERSION.md
 git rev-list --tags --max-count=1 >> VERSION.md
 git commit -m "Updating VERSION.md" VERSION.md
@@ -86,7 +86,7 @@ cat VERSION.md
 echo "--------END--------"
 
 # push new tag ref to github
-dt=$(date '+%Y-%m-%dT%H:%M:%SZ')
+# dt=$(date '+%Y-%m-%dT%H:%M:%SZ')
 full_name=$GITHUB_REPOSITORY
 git_refs_url=$(jq .repository.git_refs_url $GITHUB_EVENT_PATH | tr -d '"' | sed 's/{\/sha}//g')
 
