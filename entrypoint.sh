@@ -77,7 +77,7 @@ echo "$new" >> VERSION.md
 echo "<br><br>**Date:** " >> VERSION.md
 echo "$dt" >> VERSION.md
 echo "<br><br>**Commit:** " >> VERSION.md
-git rev-list --tags --max-count=1 >> VERSION.md
+echo "$commit" >> VERSION.md
 git commit -m "Updating VERSION.md" VERSION.md
 git push origin HEAD:master
 ls
