@@ -68,7 +68,8 @@ then
     exit 0
 fi
 
- git pull origin master
+git pull origin master
+echo "HERE!!!!!!!"
 
 # push new tag ref to github
 dt=$(date '+%Y-%m-%dT%H:%M:%SZ')
