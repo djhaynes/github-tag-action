@@ -69,13 +69,6 @@ then
 fi
 
  git pull origin master
- echo "**Release:** " > VERSION.md
- git describe --tags $(git rev-list --tags --max-count=1) >> VERSION.md
- echo "<br><br>**Date:** " >> VERSION.md
- git show -s --format=%ci $(git rev-list --tags --max-count=1) >> VERSION.md
- echo "<br><br>**Commit:** " >> VERSION.md
- git rev-list --tags --max-count=1 >> VERSION.md
- printf "module InspecTools\n  VERSION = '$(git describe --tags $(git rev-list --tags --max-count)'.freeze\nend\n" > lib/inspec_tools/version.rb
 
 # push new tag ref to github
 dt=$(date '+%Y-%m-%dT%H:%M:%SZ')
