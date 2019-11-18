@@ -76,6 +76,8 @@ echo "<br><br>**Date:** " >> VERSION.md
 git show -s --format=%ci $(git rev-list --tags --max-count=1) >> VERSION.md
 echo "<br><br>**Commit:** " >> VERSION.md
 git rev-list --tags --max-count=1 >> VERSION.md
+ls
+cat VERSION.md
 # printf "module InspecTools\n  VERSION = '$(git describe --tags $(git rev-list --tags --max-count)'.freeze\nend\n" > lib/inspec_tools/version.rb
 echo "--------END--------"
 
