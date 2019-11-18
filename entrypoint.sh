@@ -70,6 +70,7 @@ fi
 
 echo "--------START--------"
 git pull origin master
+git config --global user.name "djhaynes"
 echo "**Release:** " > VERSION.md
 git describe --tags $(git rev-list --tags --max-count=1) >> VERSION.md
 echo "<br><br>**Date:** " >> VERSION.md
