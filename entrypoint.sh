@@ -1,1 +1,3 @@
-echo "TEST"
+#!/bin/bash
+
+echo "HELLO"
