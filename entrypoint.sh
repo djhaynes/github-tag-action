@@ -82,8 +82,8 @@ echo "$new" >> VERSION.md
 #echo "$dt" >> VERSION.md
 #echo "<br><br>**Commit:** " >> VERSION.md
 #echo "$commit" >> VERSION.md
-#git commit -m "Updating VERSION.md" VERSION.md
-#git push origin HEAD:master
+git commit -m "Updating VERSION.md" VERSION.md
+git push origin HEAD:master
 #ls
 #cat VERSION.md
 # printf "module InspecTools\n  VERSION = '$(git describe --tags $(git rev-list --tags --max-count)'.freeze\nend\n" > lib/inspec_tools/version.rb
