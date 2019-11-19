@@ -63,3 +63,4 @@ git pull origin master
 echo "$new" > VERSION.md
 git commit -m "incrementing VERSION.md" VERSION.md
 git push origin master
+git tag $new
