@@ -68,20 +68,24 @@ then
     exit 0
 fi
 dt=$(date '+%Y-%m-%dT%H:%M:%SZ')
-echo "--------START--------"
-git pull origin master
-git config --global user.name "djhaynes"
-git config --global user.email "dhaynes@mitre.org"
-echo "**Release:** " > VERSION.md
-echo "$new" >> VERSION.md
-echo "<br><br>**Date:** " >> VERSION.md
-echo "$dt" >> VERSION.md
-echo "<br><br>**Commit:** " >> VERSION.md
-echo "$commit" >> VERSION.md
-git commit -m "Updating VERSION.md" VERSION.md
-git push origin HEAD:master
-ls
-cat VERSION.md
+echo "Date: $dt"
+echo "Version: $new"
+echo "Tag Commit: $tag_commit"
+echo "Commit: $commit"
+#echo "--------START--------"
+#git pull origin master
+#git config --global user.name "djhaynes"
+#git config --global user.email "dhaynes@mitre.org"
+#echo "**Release:** " > VERSION.md
+#echo "$new" >> VERSION.md
+#echo "<br><br>**Date:** " >> VERSION.md
+#echo "$dt" >> VERSION.md
+#echo "<br><br>**Commit:** " >> VERSION.md
+#echo "$commit" >> VERSION.md
+#git commit -m "Updating VERSION.md" VERSION.md
+#git push origin HEAD:master
+#ls
+#cat VERSION.md
 # printf "module InspecTools\n  VERSION = '$(git describe --tags $(git rev-list --tags --max-count)'.freeze\nend\n" > lib/inspec_tools/version.rb
 echo "--------END--------"
 
