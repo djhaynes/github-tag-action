@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get current tag number
-tag = $(git describe --tags `git rev-list --tags --max-count=1`)
+tag=$(git describe --tags `git rev-list --tags --max-count=1`)
 
 # if there are none, start tags at 0.0.0
 if [ -z "$tag" ]
