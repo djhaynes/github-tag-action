@@ -60,8 +60,8 @@ fi
 echo "NEW: $new"
 
 git pull origin master
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
+git config --global user.email "dhaynes@mitre.org"
+git config --global user.name "djhaynes"
 echo "$new" > VERSION.md
 git commit -m "incrementing VERSION.md" VERSION.md
 git push origin master
