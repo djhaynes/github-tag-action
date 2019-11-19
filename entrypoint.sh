@@ -32,4 +32,4 @@ then
     new="$new-${commit:0:7}"
 fi
 
-echo "$new"
+echo "NEW: $new"
