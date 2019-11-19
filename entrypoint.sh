@@ -1,7 +1,32 @@
 #!/bin/bash
 
-# Get current tag number
+# config
+default_semvar_bump=${DEFAULT_BUMP:-minor}
+with_v=${WITH_V:-false}
+release_branches=${RELEASE_BRANCHES:-master}
+
+pre_release="true"
+IFS=',' read -ra branch <<< "$release_branches"
+for b in "${branch[@]}"; do
+    echo "Is $b a match for ${GITHUB_REF#'refs/heads/'}"
+    if [[ "${GITHUB_REF#'refs/heads/'}" =~ $b ]]
+    then
+        pre_release="false"
+    fi
+done
+echo "pre_release = $pre_release"
+
+# get latest tag
 tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+tag_commit=$(git rev-list -n 1 $tag)
+
+# get current commit hash for tag
+commit=$(git rev-parse HEAD)
+
+if [ "$tag_commit" == "$commit" ]; then
+    echo "No new commits since previous tag. Skipping..."
+    exit 0
+fi
 
 # if there are none, start tags at 0.0.0
 if [ -z "$tag" ]
